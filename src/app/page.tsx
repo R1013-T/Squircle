@@ -1,99 +1,119 @@
-import Image from "next/image";
+"use client";
+
+import { Squircle } from "@squircle-js/react";
+import { Squircle as ReactIosCorner } from "react-ios-corners";
 
 export default function Home() {
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm text-center sm:text-left">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      <header>How to Squircle</header>
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start *:flex *:gap-3 *:justify-center *:w-full">
+        <div className="flex gap-3">
+          <Squircle
+            cornerRadius={64}
+            cornerSmoothing={1}
+            width={256}
+            height={256}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <div className="w-full h-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500" />
+          </Squircle>
+          <div className="w-64 h-64 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-[64px]"></div>
+        </div>
+        <div className="flex gap-3">
+          <Squircle
+            asChild
+            cornerRadius={12}
+            cornerSmoothing={1}
+            className="bg-white text-black px-2 py-1"
           >
-            Read our docs
-          </a>
+            <span className="text-2xl">Inline Squircle</span>
+          </Squircle>
+          <span className="bg-white text-black px-2 py-1 rounded-xl text-2xl">
+            Inline Rounded
+          </span>
+        </div>
+        <hr />
+        <div className="relative">
+          <Squircle
+            cornerRadius={64}
+            cornerSmoothing={1}
+            width={256}
+            height={256}
+          >
+            <div className="w-full h-full bg-gradient-to-br bg-red-500/40 absolute" />
+          </Squircle>
+          <div className="w-64 h-64 bg-gradient-to-br bg-blue-500/40 absolute rounded-[64px]"></div>
+        </div>
+        <div className="relative h-28">
+          <button className="absolute">
+            <Squircle
+              cornerRadius={12}
+              cornerSmoothing={1}
+              className="bg-red-500/40 text-black px-4 py-3 text-2xl"
+            >
+              Button
+            </Squircle>
+          </button>
+          <button className="bg-blue-500/40 text-black px-4 py-3 rounded-xl text-2xl absolute">
+            Button
+          </button>
+        </div>
+        <hr />
+        <div className="flex flex-col gap-1">
+          <div className="">
+            <ReactIosCorner>
+              <button
+                className="bg-white w-full p-10 py-2 text-black cursor-pointer"
+                onClick={() => {
+                  alert("ReactIosCorner Clicked");
+                }}
+              >
+                React IOS Corner
+              </button>
+            </ReactIosCorner>
+          </div>
+          <button
+            className="bg-white p-10 py-2 text-black rounded-xl cursor-pointer"
+            onClick={() => {
+              alert("Rounded Clicked");
+            }}
+          >
+            Rounded Button
+          </button>
+          <Squircle
+            asChild
+            cornerRadius={12}
+            cornerSmoothing={1}
+            className="bg-white text-black p-10 py-2"
+          >
+            <button
+              className="bg-white p-10 py-2 text-black cursor-pointer"
+              onClick={() => {
+                alert("Rounded Clicked");
+              }}
+            >
+              Inline Squircle
+            </button>
+          </Squircle>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file-text.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <footer className="mt-80 pb-20">
+        <h2 className="text-2xl font-bold mb-4">Summary</h2>
+        <h3 className="font-bold text-lg mb-2">Squircle.js</h3>
+        <p className="text-sm mb-3">
+          RSC ... ✅ <br />
+          小さい要素だと分かりづらい
+          <br />
+          <strong>使用要素 ... カード</strong>
+        </p>
+        <h3 className="font-bold text-lg mb-2">React IOS Corner</h3>
+        <p className="text-sm mb-3">
+          RSC ... ❌ <br />
+          小さい要素でも分かりやすい
+          <br />
+          <strong>使用要素 ... ボタン</strong>
+        </p>
+        <p>こだわるなら使い分ける。Squircle.jsに統一しても良いと思う。</p>
       </footer>
     </div>
   );
